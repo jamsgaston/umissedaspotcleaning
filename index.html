@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You Missed A Spot Cleaning | Every Detail, Every Time!</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #6a11cb;
+            --secondary: #2575fc;
+            --accent: #f1c40f;
+            --white: #ffffff;
+            --bg-light: #f8f9fa;
+        }
+
+        * { box-sizing: border-box; scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; margin: 0; color: #333; line-height: 1.6; overflow-x: hidden; }
+
+        /* Floating Background Shapes */
+        .bg-shape {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            z-index: 0;
+            animation: float 20s infinite linear;
+        }
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(100px, 100px) rotate(360deg); }
+        }
+
+        /* Header */
+        header { position: fixed; width: 100%; top: 0; z-index: 1000; background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(0,0,0,0.05); }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 8%; }
+        .logo { font-size: 1.4rem; font-weight: 800; color: var(--primary); }
+        nav ul { display: flex; list-style: none; margin: 0; }
+        nav ul li { margin-left: 25px; }
+        nav ul li a { text-decoration: none; color: #444; font-weight: 600; transition: 0.3s; }
+        nav ul li a:hover { color: var(--secondary); }
+
+        /* Hero Section */
+        .hero { 
+            height: 90vh; 
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); 
+            display: flex; 
+            align-items: center; 
+            padding: 0 8%; 
+            color: white; 
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-content { position: relative; z-index: 1; }
+        .hero h1 { font-size: 4.5rem; line-height: 1.1; margin-bottom: 20px; animation: fadeInDown 1s both; }
+        .highlight { color: var(--accent); text-shadow: 0 0 20px rgba(241, 196, 15, 0.3); }
+        
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Buttons */
+        .btn-primary { 
+            background: var(--accent); 
+            color: #333; 
+            padding: 18px 36px; 
+            border-radius: 50px; 
+            text-decoration: none; 
+            font-weight: 800; 
+            display: inline-block; 
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .btn-primary:hover { transform: scale(1.1) translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.2); }
+
+        /* Service Cards */
+        .services { padding: 100px 8%; background: var(--bg-light); text-align: center; }
+        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 50px; }
+        
+        .card { 
+            background: white; 
+            padding: 45px 30px; 
+            border-radius: 25px; 
+            box-shadow: 0 10px 40px rgba(0,0,0,0.03); 
+            transition: all 0.4s ease; 
+            text-align: left; 
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        .card:hover { 
+            transform: translateY(-15px); 
+            box-shadow: 0 20px 50px rgba(106, 17, 203, 0.15);
+            border-color: var(--secondary);
+        }
+        .card h3 { color: var(--primary); margin-bottom: 12px; font-size: 1.5rem; }
+        .card ul { padding-left: 20px; list-style-type: '✨ '; }
+        .card li { margin-bottom: 8px; font-size: 0.9rem; transition: 0.3s; }
+        .card:hover li { color: #000; transform: translateX(5px); }
+
+        /* Google Form Section */
+        .booking-section { padding: 100px 8%; background: #fff; text-align: center; }
+        .form-container { 
+            max-width: 800px; 
+            margin: 40px auto 0; 
+            border-radius: 30px; 
+            overflow: hidden; 
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            background: white;
+            border: 10px solid white;
+        }
+
+        /* Reviews Scroll */
+        .reviews { padding: 80px 8%; text-align: center; background: var(--bg-light); }
+        .reviews-container { display: flex; overflow-x: auto; gap: 25px; padding: 40px 10px; scroll-snap-type: x mandatory; }
+        .review-card { 
+            min-width: 320px; 
+            background: white; 
+            padding: 35px; 
+            border-radius: 25px; 
+            scroll-snap-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.8rem; }
+            nav ul { display: none; }
+            .form-container { height: 800px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">✨ U Missed A Spot</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#booking">Book Now</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="bg-shape" style="width: 100px; height: 100px; top: 20%; left: 10%;"></div>
+        <div class="bg-shape" style="width: 200px; height: 200px; bottom: 10%; right: 10%; animation-duration: 30s;"></div>
+        
+        <div class="hero-content">
+            <h1 data-aos="zoom-out-up">Every Detail, <br><span class="highlight">Every Time!</span></h1>
+            <p data-aos="fade-up" data-aos-delay="200">Expert Home Cleaning Services. We don't just clean; we transform your space into a sanctuary.</p>
+            <div class="hero-btns" data-aos="fade-up" data-aos-delay="400">
+                <a href="#booking" class="btn-primary">Book a Cleaning</a>
+                <a href="#services" class="btn-secondary" style="border: 2px solid white; color: white; padding: 16px 32px; border-radius: 50px; text-decoration: none; margin-left: 15px; font-weight: 600;">Explore Packages</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <h2 data-aos="fade-down">Our Service Packages</h2>
+        <div class="service-grid">
+            
+            <div class="card" data-aos="flip-left">
+                <h3>The Good Gardner</h3>
+                <ul>
+                    <li>Basic dusting of surfaces</li>
+                    <li>Wipe down counters & tables</li>
+                    <li>Kitchen cleaning (light wipe down)</li>
+                    <li>Bathroom cleaning (toilet, sink, tub)</li>
+                    <li>Vacuuming & Mopping</li>
+                    <li>Trash removal</li>
+                </ul>
+            </div>
+
+            <div class="card" data-aos="flip-left" data-aos-delay="100" style="border: 2px solid var(--secondary);">
+                <div style="background: var(--secondary); color: white; display: inline-block; padding: 2px 12px; border-radius: 10px; font-size: 0.7rem; margin-bottom: 10px;">STANDARD</div>
+                <h3>The Blessed Bennett</h3>
+                <ul>
+                    <li>Dusting all reachable surfaces</li>
+                    <li>Kitchen (appliances exteriors, microwave)</li>
+                    <li>Bathroom (toilet, sink, tub/shower)</li>
+                    <li>Light build up removal</li>
+                    <li>Vacuuming, mopping, trash removal</li>
+                </ul>
+            </div>
+
+            <div class="card" data-aos="flip-left" data-aos-delay="200">
+                <h3>The Awesome Alexander</h3>
+                <ul>
+                    <li>Base boards dusted</li>
+                    <li>Window sills wiped</li>
+                    <li>Full bathroom scrub</li>
+                    <li>Moderate soap scum removal</li>
+                    <li>Kitchen deep cleaned</li>
+                    <li>Doors & light switches disinfected</li>
+                </ul>
+            </div>
+
+            <div class="card" data-aos="flip-left">
+                <h3>The Terrific Tilghman</h3>
+                <ul>
+                    <li>Hard to reach area dusting</li>
+                    <li>All visible baseboards wiped</li>
+                    <li>Window sills and ledges cleaned</li>
+                    <li>Full kitchen deep clean</li>
+                    <li>Deep bathroom grout scrub</li>
+                    <li>Final presentation walk through</li>
+                </ul>
+            </div>
+
+            <div class="card" data-aos="flip-left" data-aos-delay="100">
+                <h3>The Jolly Jones</h3>
+                <ul>
+                    <li>Full dusting of furniture</li>
+                    <li>Baseboard spot clean</li>
+                    <li>Window sills cleaned</li>
+                    <li>Kitchen appliances & microwave</li>
+                    <li>Cabinet exteriors lightly wiped</li>
+                    <li>Light organization</li>
+                </ul>
+            </div>
+
+            <div class="card" data-aos="flip-left" data-aos-delay="200">
+                <h3>The Preston Reset</h3>
+                <ul>
+                    <li>Move-Out specialized cleaning</li>
+                    <li>Kitchen countertop & exterior cabinets</li>
+                    <li>Appliance exterior cleaning</li>
+                    <li>Interior windowsills</li>
+                    <li>Floor vacuuming and mopping</li>
+                    <li>Ready for final walkthrough</li>
+                </ul>
+            </div>
+
+            <div class="card" data-aos="flip-left" data-aos-delay="300">
+                <h3>The Hawkes Welcome</h3>
+                <ul>
+                    <li>Move-In sanitizing service</li>
+                    <li>Detail cleaning of all surfaces</li>
+                    <li>Kitchen & Bathroom refresh</li>
+                    <li>High-touch area disinfection</li>
+                    <li>Ready for your first night home</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="booking-section" id="booking">
+        <div data-aos="fade-up">
+            <h2>Book a Cleaning</h2>
+            <p>Ready for a sparkling home? Fill out the form below!</p>
+        </div>
+        <div class="form-container" data-aos="zoom-in">
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfWvkQmK-LZPLcVeb16x24ykFxAq49t668M88exk_tJdI-dDg/viewform?embedded=true" width="100%" height="1000" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+        </div>
+    </section>
+
+    <section class="reviews">
+        <h2 data-aos="fade-up">What Clients Say</h2>
+        <div class="reviews-container">
+            <div class="review-card" data-aos="fade-right">
+                <p>"I am extremely happy with my decision to hire You Missed A Spot Cleaning for my home."</p>
+                <h4>- Joy Smith</h4>
+            </div>
+            <div class="review-card" data-aos="fade-right" data-aos-delay="100">
+                <p>"I personally and wholeheartedly recommend this cleaning company. Amazing job!"</p>
+                <h4>- Kiyonna Ellis</h4>
+            </div>
+            <div class="review-card" data-aos="fade-right" data-aos-delay="200">
+                <p>"Very professional and detailed when it comes to cleaning! Brittany gets it done."</p>
+                <h4>- Raven Samone</h4>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: false, // Set to false so it re-animates when you scroll back up!
+            mirror: true
+        });
+    </script>
+</body>
+</html>
