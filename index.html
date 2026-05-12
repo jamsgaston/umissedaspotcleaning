@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>U Missed A Spot | Professional Cleaning</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #6a11cb;
+            --secondary: #2575fc;
+            --accent: #f1c40f;
+            --white: #ffffff;
+            --bg-light: #f8f9fa;
+        }
+
+        * { box-sizing: border-box; scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; margin: 0; color: #333; line-height: 1.6; }
+
+        /* Header */
+        header { position: fixed; width: 100%; top: 0; z-index: 1000; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid #eee; }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 8%; }
+        .logo { font-size: 1.4rem; font-weight: 800; color: var(--primary); }
+        nav ul { display: flex; list-style: none; margin: 0; }
+        nav ul li { margin-left: 25px; }
+        nav ul li a { text-decoration: none; color: #444; font-weight: 600; font-size: 0.9rem; }
+
+        /* Hero */
+        .hero { height: 85vh; background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); display: flex; align-items: center; padding: 0 8%; color: white; }
+        .hero h1 { font-size: 4rem; line-height: 1.1; margin-bottom: 20px; }
+        .hero p { font-size: 1.2rem; max-width: 550px; margin-bottom: 35px; opacity: 0.9; }
+        .highlight { color: var(--accent); }
+
+        /* Buttons */
+        .btn-primary { background: var(--accent); color: #333; padding: 16px 32px; border-radius: 50px; text-decoration: none; font-weight: 800; display: inline-block; transition: 0.3s; }
+        .btn-secondary { border: 2px solid white; color: white; padding: 14px 32px; border-radius: 50px; text-decoration: none; margin-left: 15px; font-weight: 600; transition: 0.3s; }
+        .btn-primary:hover { transform: scale(1.05); background: #f39c12; }
+
+        /* Services Grid */
+        .services { padding: 100px 8%; background: var(--bg-light); text-align: center; }
+        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 50px; }
+        .card { background: white; padding: 40px 25px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.3s; position: relative; border: 1px solid transparent; }
+        .card:hover { transform: translateY(-10px); border-color: var(--secondary); }
+        .card h3 { color: var(--primary); margin-bottom: 15px; }
+        .featured { transform: scale(1.05); border: 2px solid var(--secondary); box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
+        .badge { position: absolute; top: 15px; right: 15px; background: var(--accent); font-size: 0.7rem; font-weight: 800; padding: 4px 12px; border-radius: 20px; text-transform: uppercase; }
+
+        /* Reviews */
+        .reviews { padding: 100px 8%; text-align: center; background: white; }
+        .reviews-container { display: flex; overflow-x: auto; gap: 20px; padding: 20px 0; scrollbar-width: none; }
+        .review-card { min-width: 300px; background: var(--bg-light); padding: 30px; border-radius: 20px; text-align: left; }
+        .review-card p { font-style: italic; color: #555; }
+        .review-card h4 { margin-top: 15px; color: var(--secondary); }
+
+        /* Contact Section */
+        .contact { padding: 100px 8%; background: var(--bg-light); text-align: center; }
+        .contact-form { max-width: 500px; margin: 40px auto 0; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        input, textarea { width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 10px; font-family: inherit; }
+        .submit-btn { width: 100%; background: var(--primary); color: white; border: none; padding: 15px; border-radius: 10px; font-weight: 800; cursor: pointer; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero { text-align: center; justify-content: center; }
+            .btn-secondary { margin-left: 0; margin-top: 15px; display: block; }
+            nav ul { display: none; } /* Simplified for mobile */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">✨ U Missed A Spot</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content" data-aos="fade-up">
+            <h1>Sparkling Clean <br><span class="highlight">Every Time!</span></h1>
+            <p>Expert home cleaning services in your area. We focus on the details so you can focus on your life.</p>
+            <div class="hero-btns">
+                <a href="#contact" class="btn-primary">Book a Cleaning!</a>
+                <a href="#services" class="btn-secondary">View Packages</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <h2 data-aos="fade-up">Our Service Packages</h2>
+        <div class="service-grid">
+            <div class="card" data-aos="fade-up">
+                <h3>The Good Gardner</h3>
+                <p>Basic dusting, kitchen/bathroom wipe down, vacuuming, mopping, and trash removal.</p>
+            </div>
+            <div class="card featured" data-aos="fade-up" data-aos-delay="100">
+                <div class="badge">Most Popular</div>
+                <h3>The Blessed Bennett</h3>
+                <p>Standard cleaning plus interior microwave, appliance exteriors, and build-up removal.</p>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="200">
+                <h3>The Awesome Alexander</h3>
+                <p>Deep cleaning: Baseboards, window sills, moderate soap scum removal, and door frames.</p>
+            </div>
+            <div class="card" data-aos="fade-up">
+                <h3>The Terrific Tilghman</h3>
+                <p>Top-to-bottom transformational clean. Includes grout scrub and interior cabinet wipe-out.</p>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="100">
+                <h3>The Jolly Jones</h3>
+                <p>Premium detail clean for a luxury finish. Includes light organization and high-touch disinfection.</p>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="200">
+                <h3>The Preston Reset</h3>
+                <p>Ideal for Move-Outs. Ensures a fresh start for tenants or new homeowners.</p>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="300">
+                <h3>The Hawkes Welcome</h3>
+                <p>Move-In cleaning to sanitize and refresh your new home before you arrive.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="reviews" id="reviews">
+        <h2 data-aos="fade-up">Customer Reviews</h2>
+        <div class="reviews-container">
+            <div class="review-card" data-aos="zoom-in">
+                <p>"I am extremely happy with my decision to hire You Missed A Spot Cleaning for my home."</p>
+                <h4>- Joy Smith</h4>
+            </div>
+            <div class="review-card" data-aos="zoom-in" data-aos-delay="100">
+                <p>"I personally and wholeheartedly recommend this cleaning company. Amazing job!"</p>
+                <h4>- Kiyonna Ellis</h4>
+            </div>
+            <div class="review-card" data-aos="zoom-in" data-aos-delay="200">
+                <p>"Very professional and detailed when it comes to cleaning! Brittany gets it done."</p>
+                <h4>- Raven Samone</h4>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="contact-form" data-aos="fade-up">
+            <h2>Get a Free Quote</h2>
+            <form>
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea rows="4" placeholder="Tell us about your home (size, condition, etc.)"></textarea>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init({ duration: 1000, once: true });</script>
+</body>
+</html>
