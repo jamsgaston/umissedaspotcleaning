@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You Missed A Spot Cleaning | Every Detail, Every Time!</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #6a11cb;
+            --secondary: #2575fc;
+            --accent: #f1c40f;
+            --white: #ffffff;
+            --bg-light: #f8f9fa;
+        }
+
+        * { box-sizing: border-box; scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; margin: 0; color: #333; line-height: 1.6; overflow-x: hidden; }
+
+        /* Floating Background Shapes */
+        .bg-shape {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            z-index: 0;
+            animation: float 20s infinite linear;
+        }
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(100px, 100px) rotate(360deg); }
+        }
+
+        header { position: fixed; width: 100%; top: 0; z-index: 1000; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(0,0,0,0.05); }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 15px 8%; }
+        .logo { font-size: 1.4rem; font-weight: 800; color: var(--primary); }
+        nav ul { display: flex; list-style: none; margin: 0; }
+        nav ul li { margin-left: 25px; }
+        nav ul li a { text-decoration: none; color: #444; font-weight: 600; transition: 0.3s; }
+        nav ul li a:hover { color: var(--secondary); }
+
+        .hero { 
+            height: 90vh; 
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); 
+            display: flex; 
+            align-items: center; 
+            padding: 0 8%; 
+            color: white; 
+            position: relative;
+            overflow: hidden;
+        }
+        .hero h1 { font-size: 4.5rem; line-height: 1.1; margin-bottom: 20px; z-index: 2; }
+        .highlight { color: var(--accent); }
+        
+        .btn-primary { 
+            background: var(--accent); 
+            color: #333; 
+            padding: 18px 36px; 
+            border-radius: 50px; 
+            text-decoration: none; 
+            font-weight: 800; 
+            display: inline-block; 
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .btn-primary:hover { transform: scale(1.1) translateY(-5px); }
+
+        section { padding: 100px 8%; position: relative; }
+        .section-title { text-align: center; margin-bottom: 60px; }
+        .section-title h2 { font-size: 2.5rem; color: var(--primary); margin-bottom: 10px; }
+
+        .about-content { display: grid; grid-template-columns: 1fr 1.5fr; gap: 50px; align-items: center; }
+        .about-image-placeholder { background: #eee; border-radius: 30px; height: 400px; display: flex; align-items: center; justify-content: center; font-size: 4rem; }
+
+        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .card { background: white; padding: 35px 25px; border-radius: 25px; box-shadow: 0 10px 40px rgba(0,0,0,0.03); transition: 0.4s; border: 1px solid rgba(0,0,0,0.05); text-align: left; }
+        .card:hover { transform: translateY(-15px); border-color: var(--secondary); }
+        .card h3 { color: var(--primary); font-size: 1.4rem; margin-bottom: 10px; }
+        .card p { font-size: 0.9rem; margin-bottom: 15px; font-weight: 600; }
+        .card ul { padding-left: 20px; font-size: 0.85rem; line-height: 1.4; }
+        .card li { margin-bottom: 6px; }
+
+        .form-container { max-width: 850px; margin: 0 auto; border-radius: 30px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.1); border: 8px solid white; }
+
+        @media (max-width: 992px) {
+            .about-content { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 3rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">✨ U Missed A Spot</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#booking">Book Now</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="bg-shape" style="width: 150px; height: 150px; top: 15%; left: 5%;"></div>
+        <div class="hero-content">
+            <h1 data-aos="fade-right">Every Detail, <br><span class="highlight">Every Time!</span></h1>
+            <p data-aos="fade-up" data-aos-delay="200">Expert Home Cleaning Services. We don't just clean; we transform your space.</p>
+            <a href="#booking" class="btn-primary" data-aos="zoom-in" data-aos-delay="400">Book a Cleaning</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="about-content">
+            <div class="about-image-placeholder" data-aos="fade-right">👤</div>
+            <div data-aos="fade-left">
+                <h2>Meet the Owner: Brittany Alexander</h2>
+                <p>Hi, I'm Brittany the founder of You Missed A Spot Cleaning Solutions. What started in 2019 as a vision to build something of my own has grown into a business rooted in hard work, resilience, and a true passion for helping others. As a mother, a full-time worker, and a woman determined to create a better future, I understand how overwhelming life can get and how much a clean, peaceful space can truly make a difference.</p>
+                <p>I didn't build this company to just clean homes, I built it to serve people. Every home we enter is treated with care, respect, and attention to detail, because I know what it means to trust someone in your space. My goal is not just to meet expectations, but to exceed them every single time.</p>
+                <p>When you book with us, you're not just getting a cleaning service, you're getting someone who genuinely cares.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="services" style="background: var(--bg-light);">
+        <div class="section-title" data-aos="fade-up">
+            <h2>Our Service Packages</h2>
+        </div>
+        <div class="service-grid">
+            
+            <div class="card" data-aos="flip-up">
+                <h3>The Good Gardner</h3>
+                <p>This package includes:</p>
+                <ul>
+                    <li>Basic dusting of surfaces</li>
+                    <li>Wipe down counters & tables</li>
+                    <li>Kitchen cleaning (light wipe down)</li>
+                    <li>Bathroom cleaning (toilet, sink & tub, mirror)</li>
+                    <li>Vacuuming</li>
+                    <li>Mopping</li>
+                    <li>Trash removal</li>
+                </ul>
+            </div>
+
+            <div class="card" data-aos="flip-up" data-aos-delay="100">
+                <h3>The Blessed Bennett</h3>
+                <p>This package includes standard cleaning with additional details:</p>
+                <ul>
+                    <li>Dusting all reachable surfaces</li>
+                    <li>Kitchen cleaning (counters, appliances, exteriors, interior of microwave)</li>
+                    <li>Bathroom cleaning (toilet, sink, tub/shower)</li>
+                    <li>Light build up removal in kitchen & bathroom</li>
+                    <li>Vacuuming</li>
+                    <li>Mopping</li>
+                    <li>Trash removal</li>
+                </ul>
+            </div>
+
+            <div class="card" data-aos="flip-up" data-aos-delay="200">
+                <h3>The Awesome Alexander</h3>
+                <p>Deep cleaning service for homes that need a reset and detailed addition:</p>
+                <ul>
+                    <li>Full dusting of surfaces</li>
+                    <li>Base boards dusted</li>
+                    <li>Window sills wiped</li>
+                    <li>Bathroom scrubbed (toilet, tub/shower, sink)</li>
+                    <li>Light to moderate soap scum build up & removal</li>
+                    <li>Kitchen deep cleaned (counters, appliances, exteriors, interior of microwave, backsplash)</li>
+                    <li>Doors & door frames spot cleaned</li>
+                    <li>Light switches & handles disinfected</li>
+                    <li>Vacuuming throughout home</li>
+                    <li>Mopping all floor</li>
+                    <li>Trash removed</li>
+                </ul>
+            </div>
+
+            <div class="card" data-aos="flip-up">
+                <h3>The Terrific Tilghman</h3>
+                <p>Our highest-level, top-to-bottom transformational clean:</p>
+                <ul>
+                    <li>Full dusting of all surfaces including hard to reach areas</li>
+                    <li>All visible baseboards wiped throughout the entire home</li>
+                    <li>Window sills and ledges cleaned</li>
+                    <li>Full kitchen deep clean (counters, back splash, appliances, interior of microwave, exterior of refrigerator & oven, cabinet exteriors thoroughly wiped, cabinet interior cabinet wiped but must be emptied)</li>
+                    <li>Deep bathroom scrub (tile grout, toilet, tub/shower, sink counters & fixtures wiped, dusted & polished)</li>
+                    <li>Door frames, doors & high touched areas sanitized</li>
+                    <li>Detailed vacuuming including reachable edges & corners</li>
+                    <li>Mopping with attention to edges & build up areas</li>
+                    <li>Trash removed & liners replaced</li>
+                    <li>Final presentation walk through for a polished finish</li>
+                </ul>
+            </div>
+
+            <div class="card" data-aos="flip-up" data-aos-delay="100">
+                <h3>The Jolly Jones</h3>
+                <p>A premium detail clean for homes needing extra attention & a luxury finish:</p>
+                <ul>
+                    <li>Full dusting of surfaces & furniture</li>
+                    <li>Baseboard spot clean (depending on condition)</li>
+                    <li>Window sills cleaned</li>
+                    <li>Kitchen cleaning (counters appliances, exteriors, interior of microwave)</li>
+                    <li>Cabinet exteriors lightly wiped</li>
+                    <li>Bathrooms scrubbed (toilet, sink, shower/tab, shower doors)</li>
+                    <li>High-touch areas disinfected (handles, switches)</li>
+                    <li>Vacuuming of all areas</li>
+                    <li>Mopping the floor</li>
+                    <li>Trash removal</li>
+                    <li>Light organization</li>
+                </ul>
+            </div>
+
+            <div class="card" data-aos="flip-up" data-aos-delay="200">
+                <h3>The Preston Reset</h3>
+                <p>Our Preston Reset Move-Out Cleaning is designed to help leave your home fresh:</p>
+                <ul>
+                    <li>Dusting throughout the home</li>
+                    <li>Wipe down of accessible surfaces</li>
+                    <li>Kitchen countertop cleaning</li>
+                    <li>Exterior cabinet wipe down</li>
+                    <li>Sink and faucet cleaning</li>
+                    <li>Appliance exterior cleaning</li>
+                    <li>Bathroom sink, toilet, tub, and shower cleaning</li>
+                    <li>Mirror cleaning</li>
+                    <li>Floor vacuuming and mopping</li>
+                    <li>Baseboard dusting/wipe down</li>
+                    <li>Interior windowsills cleaned</li>
+                    <li>Trash removal from bins</li>
+                    <li>Spot cleaning of doors and light switches</li>
+                </ul>
+            </div>
+
+            <div class="card" data-aos="flip-up" data-aos-delay="300">
+                <h3>The Hawkes Welcome</h3>
+                <p>Our Hawkes Welcome Move-In Cleaning is the perfect fresh start:</p>
+                <ul>
+                    <li>Dusting throughout the home</li>
+                    <li>Wipe down of accessible surfaces</li>
+                    <li>Kitchen countertop cleaning</li>
+                    <li>Exterior cabinet wipe down</li>
+                    <li>Sink and faucet cleaning</li>
+                    <li>Appliance exterior cleaning</li>
+                    <li>Bathroom sink, toilet, tub, and shower cleaning</li>
+                    <li>Mirror cleaning</li>
+                    <li>Floor vacuuming and mopping</li>
+                    <li>Baseboard dusting/wipe down</li>
+                    <li>Interior windowsills cleaned</li>
+                    <li>Spot cleaning of doors and light switches</li>
+                    <li>Sanitizing of high-touch areas</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="booking-section" id="booking">
+        <div class="section-title" data-aos="fade-up">
+            <h2>Book a Cleaning</h2>
+            <p>Ready for a sparkling home? Fill out the form below!</p>
+        </div>
+        <div class="form-container" data-aos="zoom-in">
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfWvkQmK-LZPLcVeb16x24ykFxAq49t668M88exk_tJdI-dDg/viewform?embedded=true" width="100%" height="1000" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>AOS.init({ duration: 1000, once: false });</script>
+</body>
+</html>
